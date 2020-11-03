@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appAngular">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Array Controller</title>
+</head>
+
+<body ng-controller="Principal as clt">
+
+  <div ng-repeat="aluno in clt.alunos">
+    <div>
+      Nome:
+      {{aluno.nome}}
+   
+      Curso:
+      {{aluno .curso}}
+    </div>
+    <br />
+  </div>
+  <script type="text/javascript" src="assets/angular.js"></script>
+  <script type="text/javascript" src="assets/angular.min.js"></script>
+
+  <script type="text/javascript">
+    angular.module('appAngular', [])
+      .controller('Principal', [function () {
+        var self = this;
+        self.alunos = [
+          { nome: 'Bruna', curso: 'Análise de Sistemas' },
+          { nome: 'Gabriel', curso: 'Psicologia' },
+          { nome: 'Lucas', curso: 'História' },
+          { nome: 'Jéssica', curso: 'Design' },
+        ];
+      }]);
+  </script>
+</body>
+
+</html>
