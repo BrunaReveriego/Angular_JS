@@ -22,11 +22,10 @@
     angular.module('appAngular', [])
       .controller('Principal', [function () {
         var self = this;
-        self.nomes = [
-          'Bruna',
-          'GitHub',
-          'AngularJS'
-        ];
+        self.mensagem = 'Vindo do Controller';
+        self.AlterarMensagem = function () {
+          self.mensagem = "Mensagem Alterada";
+        };
       }]);
   </script>
 </body>
