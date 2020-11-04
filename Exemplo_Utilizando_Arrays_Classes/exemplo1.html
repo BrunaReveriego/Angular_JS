@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appAngular">
+
+<head>
+  <meta charset="UTF-8">
+  <style>
+    .finalizado {
+      color: blue;
+    }
+
+    .pendente {
+      color: red;
+    }
+  </style>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Array Controller</title>
+</head>
+
+<body ng-controller="Principal as clt">
+
+  <div ng-repeat="aluno in clt.alunos" ng-class="clt.verificarStatus(aluno.status)">
+    <div>
+      Nome:
+      {{aluno.nome}}
+
+      Curso:
+      {{aluno.curso}}
+
+      Status:
+      {{aluno.status}}
+    </div>
+    <span>--------------------------------------------------------------------------------------------------------------------</span>
+    <br />
+  </div>
+  <script type="text/javascript" src="assets/angular.js"></script>
+  <script type="text/javascript" src="assets/angular.min.js"></script>
+
+  <script type="text/javascript">
+    angular.module('appAngular', [])
+      .controller('Principal', [function () {
+        var self = this;
+        self.alunos = [
+          { nome: 'Bruna', curso: 'Análise de Sistemas', status: 'Aprovado' },
+          { nome: 'Gabriel', curso: 'Psicologia', status: 'Reprovado' },
+          { nome: 'Lucas', curso: 'História' },
+          { nome: 'Jéssica', curso: 'Design', status: 'Reprovado' },
+        ];
+
+        self.verificarStatus = function (status) {
+          return {
+            finalizado: status == 'Aprovado',
+            pendente: status == null || status == 'Reprovado'
+          }
+        }
+
+      }]);
+  </script>
+</body>
+
+</html>
